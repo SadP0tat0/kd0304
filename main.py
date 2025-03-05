@@ -115,7 +115,7 @@ raidynas = []
 sk = []
 for i in range(200):
     sk.append(random.randint(0,3))
-r2s = {0: 'A', 1: 'B', 2: 'C', 3: 'D'}
+r2s = {0:'A', 1:'B', 2:'C', 3:'D'}
 for num in sk:
     raidynas.append(r2s[num])
 print(raidynas)
@@ -149,9 +149,32 @@ print(raidynas)
 
 
 # Sugeneruokite 3 masyvus pagal 3 uždavinio sąlygą. Sudėkite masyvus, sudėdami atitinkamas reikšmes. Paskaičiuokite kiek unikalių reikšmių kombinacijų gavote.
+print('-----------5------------')
+rand1 = [random.choice(['A', 'B', 'C', 'D']) for _ in range(200)]
+rand2 = [random.choice(['A', 'B', 'C', 'D']) for _ in range(200)]
+rand3 = [random.choice(['A', 'B', 'C', 'D']) for _ in range(200)]
+#
+# print("rand1:", rand1)
+# print("rand2:", rand2)
+# print("rand3:", rand3)
 
+combo = [f"{rand1[i]},{rand2[i]},{rand3[i]}" for i in range(200)]
+print("combo:", combo)
+unicomb = []
+for c in combo:
+    if c not in unicomb:
+        unicomb.append(c)
+unikalios = len(unicomb)
+
+print(f"Unikalios reiksmes': {unikalios}")
 
 # Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
+print('-------6------')
+koma = []
+for i in range(100):
+    koma.append(random.randint(100,999))
+print(koma)
+
 # Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 6 uždavinio masyve, bet nėra antrame 6 uždavinio masyve.
 # Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose.
 # Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 6 uždavinio masyvo reikšmės, o jo reikšmės iš būtų antrojo masyvo.
