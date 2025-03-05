@@ -57,9 +57,57 @@ print('masyvas2', masyvas2)
 print('masyvas', masyvas)
 
 # Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
+porinis = []
+neporinis = []
+# for i in masyvas:
+#     if i % 2 == 0:
+#         porinis.append(i)
+#     elif i % 2 != 0:
+#         neporinis.append(i)
+# print('porinis', porinis)
+# print('neporinis', neporinis)
 
-
+for i, num in enumerate(masyvas):
+    # print('i', i, 'num', num)
+    if i % 2 == 0:
+        porinis.append(num)
+        print(f'i: {i}, num: {num}')
+        print(porinis)
+    if i % 2 != 0:
+        neporinis.append(num)
+        print(f'i: {i}, num: {num}')
+        print(neporinis)
 # Masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
+# for indeksas, i in enumerate(masyvas):
+#     print(f'indeksas: {indeksas}, i: {i}')
+neaiskus = []
+# for i, num in enumerate(masyvas):
+#         if i % 2 == 0:
+#             porinis.append(num)
+#             print(f'i: {i}, num: {num}')
+#             print(porinis)
+#         for i in enumerate(masyvas):
+#             if masyvas[i] > 15:
+#                 [i] = 0
+#                 i.append(len(neaiskus))
+# print(neaiskus)
+
+# for i in range(len(masyvas)):
+#     if i % 2 == 0:
+#         x = masyvas[i]
+#         if x > 15:
+#             x = 0
+#         neaiskus.append(x)
+# print(neaiskus)
+
+
+for i, num in enumerate(masyvas):
+    # print('i', i, 'num', num)
+    if i % 2 == 0:
+        porinis.append(num)
+        print(f'i: {i}, num: {num}')
+        print(porinis)
+
 # Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
 # Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
 # Išrūšiuokite 3 uždavinio masyvą pagal abecėlę.
