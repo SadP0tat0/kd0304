@@ -5,23 +5,23 @@ import random
 # Dirbtinių intelektų uždavinių sprendimui nenaudoti. Googlinkite, arba klauskite.
 #
 # Sugeneruokite masyvą iš 30 elementų (indeksai nuo 0 iki 29), kurių reikšmės yra atsitiktiniai skaičiai nuo 5 iki 25.
-masyvas = [random.randint(5,25) for i in range(30)]
-print(masyvas)
+# masyvas = [random.randint(5,25) for i in range(30)]
+# print(masyvas)
 
 # arba====================================
-# masyvas = []
-# for i in range(0,30):
-#     rnum = random.randint(5,25)
-#     masyvas.append(rnum)
-# print(masyvas)
+masyvas = []
+for i in range(30):
+    rnum = random.randint(5,25)
+    masyvas.append(rnum)
+print(masyvas)
 
 
 # Naudodamiesi 1 uždavinio masyvu:
 # Suskaičiuokite kiek masyve yra reikšmių didesnių už 10;
 
 kiekis = 0
-for i in masyvas:
-    if i > 10:
+for x in masyvas:
+    if x > 10:
         kiekis += 1
 print('Didesni uz 10: ',kiekis)
 
@@ -53,7 +53,7 @@ print('supermasyvas', supermasyvas)
 masyvas2 = [random.randint(5, 25) for i in range(10)]
 for num in masyvas2:
     masyvas.append(num)
-print('masyvas2', masyvas2)
+print(f'masyvas2, {masyvas2}')
 print('masyvas', masyvas)
 
 # Iš masyvo elementų sukurkite du naujus masyvus. Vienas turi būti sudarytas iš neporinių indekso reikšmių, o kitas iš porinių;
@@ -71,47 +71,86 @@ for i, num in enumerate(masyvas):
     # print('i', i, 'num', num)
     if i % 2 == 0:
         porinis.append(num)
-        print(f'i: {i}, num: {num}')
+        # print(f'i: {i}, num: {num}')
         print(porinis)
     if i % 2 != 0:
         neporinis.append(num)
-        print(f'i: {i}, num: {num}')
+        # print(f'i: {i}, num: {num}')
         print(neporinis)
 # Masyvo elementus su poriniais indeksais padarykite lygius 0 jeigu jie didesni už 15;
-# for indeksas, i in enumerate(masyvas):
-#     print(f'indeksas: {indeksas}, i: {i}')
+print('------------2g-------------')
 neaiskus = []
-# for i, num in enumerate(masyvas):
-#         if i % 2 == 0:
-#             porinis.append(num)
-#             print(f'i: {i}, num: {num}')
-#             print(porinis)
-#         for i in enumerate(masyvas):
-#             if masyvas[i] > 15:
-#                 [i] = 0
-#                 i.append(len(neaiskus))
-# print(neaiskus)
-
-# for i in range(len(masyvas)):
-#     if i % 2 == 0:
-#         x = masyvas[i]
-#         if x > 15:
-#             x = 0
-#         neaiskus.append(x)
-# print(neaiskus)
-
-
 for i, num in enumerate(masyvas):
-    # print('i', i, 'num', num)
     if i % 2 == 0:
-        porinis.append(num)
-        print(f'i: {i}, num: {num}')
-        print(porinis)
+        if masyvas[i] > 15:
+            masyvas[i] = 0
+    neaiskus.append((i, masyvas[i]))
+print(neaiskus)
+print("Indeksai:", end=' ')
+for i, num in neaiskus:
+    print(i, end=' ')
+print("\nSkaiciai:", end=' ')
+for i, num in neaiskus:
+    print(num, end=' ')
+
+print()
+# for i in range(0, len(masyvas), 2):
+#     if masyvas[i] > 15:
+#         masyvas[i] = 0
+# print(f'pakeistos reiksmes: ', masyvas)
 
 # Suraskite pirmą (mažiausią) indeksą, kurio elemento reikšmė didesnė už 10;
+print('-----2h------')
+
+pirmas_maziausias = []
+for i, num in enumerate(masyvas):
+    if num > 10:
+        pirmas_maziausias = i
+        break
+print("Pirmas maziausais:", pirmas_maziausias)
+
 # Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
+print('--------3--------')
+raidynas = []
+sk = []
+for i in range(200):
+    sk.append(random.randint(0,3))
+r2s = {0: 'A', 1: 'B', 2: 'C', 3: 'D'}
+for num in sk:
+    raidynas.append(r2s[num])
+print(raidynas)
+# A = raidynas.count('A')
+# B = raidynas.count('B')
+# C = raidynas.count('C')
+# D = raidynas.count('D')
+#
+# print('A:', A, 'B:', B, 'C:', C, 'D:', D)
+A = 0
+B = 0
+C = 0
+D = 0
+for letter in raidynas:
+    if letter == 'A':
+        A += 1
+    if letter == 'B':
+        B += 1
+    if letter == 'C':
+        C += 1
+    if letter == 'D':
+         D += 1
+
+print(f"A: {A}, B: {B}, C: {C}, D: {D}")
+
 # Išrūšiuokite 3 uždavinio masyvą pagal abecėlę.
+print('-----------------4--------------------')
+
+raidynas.sort()
+print(raidynas)
+
+
 # Sugeneruokite 3 masyvus pagal 3 uždavinio sąlygą. Sudėkite masyvus, sudėdami atitinkamas reikšmes. Paskaičiuokite kiek unikalių reikšmių kombinacijų gavote.
+
+
 # Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
 # Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 6 uždavinio masyve, bet nėra antrame 6 uždavinio masyve.
 # Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose.
