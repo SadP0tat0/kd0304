@@ -248,14 +248,14 @@ kosmosas = []
 for i in range(101):
     rn = random.randint(0,300)
     kosmosas.append(rn)
-print(kosmosas)
+print('Kosmosas: ', kosmosas)
 # b)
 kosmosas1 = kosmosas[:]
 for i in range(len(kosmosas1)):
     while kosmosas1.count(kosmosas1[i]) > 1:
         kosmosas1[i] = random.randint(0, 300)
 
-print("Kosmosas (kosmosas):")
+print("Kosmosas1 (kosmosas):")
 print(kosmosas)
 print()
 print("Unikalus kosmosas (kosmosas1):")
@@ -278,53 +278,32 @@ print(kosmosas1)
 print('----c)-----')
 kosmosas2 = kosmosas1[:]
 # print(kosmosas2)
-# max_sk = kosmosas2[0]
-# max_i = 0
-#                                                 #didiausias skaicius
-# for i in range(1, len(kosmosas2)):
-#     if kosmosas2 [i] > max_sk:
-#         max_sk = kosmosas2[i]
-#         max_i = i
-#
-# likuciai = [value for value in kosmosas2 if value != max_sk]
-#
-# for i in range(len(likuciai)):
-#     for x in range(i + 1, len(likuciai)):
-#         if likuciai[i] < likuciai[x]:
-#             likuciai[i], likuciai[x] = likuciai[x], likuciai[i]
-#
-# vidurys = len(kosmosas2) // 2
-# kosmosas2 = likuciai[:vidurys] + [max_sk] + likuciai[vidurys:]
-# print('kosmosas2', kosmosas2)
-# Step 1: Find the largest value and its index
+
 max_sk = kosmosas2[0]
 max_i = 0
 for i in range(1, len(kosmosas2)):
     if kosmosas2[i] > max_sk:
         max_sk = kosmosas2[i]
         max_i = i
-
-# Step 2: Create a list excluding the largest value
+print()
 likuciai = [value for value in kosmosas2 if value != max_sk]
 
-# Step 3: Sort the first part (up to the middle) in ascending order
-left_part = likuciai[:len(likuciai)//2]
-right_part = likuciai[len(likuciai)//2:]
+left = likuciai[:len(likuciai)//2]
+right = likuciai[len(likuciai)//2:]
 
-# Sort the left part in ascending order
-for i in range(len(left_part)):
-    for j in range(i + 1, len(left_part)):
-        if left_part[i] > left_part[j]:
-            left_part[i], left_part[j] = left_part[j], left_part[i]
-
-# Step 4: Sort the right part in descending order
-for i in range(len(right_part)):
-    for j in range(i + 1, len(right_part)):
-        if right_part[i] < right_part[j]:
-            right_part[i], right_part[j] = right_part[j], right_part[i]
-
-# Step 5: Place the largest value in the middle (index 51)
-kosmosas2 = left_part + [max_sk] + right_part
-
-# Step 6: Print the final result
+for i in range(len(left)):
+    for j in range(i + 1, len(left)):
+        if left[i] > left[j]:
+            left[i], left[j] = left[j], left[i]
+print()
+for i in range(len(right)):
+    for j in range(i + 1, len(right)):
+        if right[i] < right[j]:
+            right[i], right[j] = right[j], right[i]
+print()
+kosmosas2 = left + [max_sk] + right
 print('kosmosas2:', kosmosas2)
+
+print('-----d------')
+
+print(101//2)
