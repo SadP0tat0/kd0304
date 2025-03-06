@@ -171,13 +171,59 @@ print(f"Unikalios reiksmes': {unikalios}")
 # Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
 print('-------6------')
 koma = []
-for i in range(100):
-    koma.append(random.randint(100,999))
-print(koma)
+for _ in range(100):
+    while True:
+        num = random.randint(100, 999)
+        if num not in koma:
+            koma.append(num)
+            break
 
+print(koma)
+koma2 = []
+for _ in range(100):
+    while True:
+        num = random.randint(100, 999)
+        if num not in koma2:
+            koma2.append(num)
+            break
+
+print(koma2)
 # Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 6 uždavinio masyve, bet nėra antrame 6 uždavinio masyve.
+print('-------7-------')
+
+koma3 = []
+for num in koma:
+    found = False
+    for num2 in koma2:
+        if num == num2:
+            found = True
+            break
+    if not found:
+        koma3.append(num)
+
+print(koma3)
+
 # Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose.
-# Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 6 uždavinio masyvo reikšmės, o jo reikšmės iš būtų antrojo masyvo.
+print('-------8-------')
+koma4 = []
+for num in koma:
+    for num2 in koma2:
+        if num == num2:
+            koma4.append(num)
+            break
+
+print(koma4)
+
 # Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25. Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. Penktas trečio ir ketvirto suma ir t.t.
-# Sugeneruokite 101 elemento masyvą su atsitiktiniais skaičiais nuo 0 iki 300. Reikšmes kurios tame masyve yra ne unikalios pergeneruokite iš naujo taip, kad visos reikšmės masyve būtų unikalios. Išrūšiuokite masyvą taip, kad jo didžiausia reikšmė būtų masyvo viduryje, o einant nuo jos link masyvo pradžios ir pabaigos reikšmės mažėtų. Paskaičiuokite pirmos ir antros masyvo dalies sumas (neskaičiuojant vidurinės). Jeigu sumų skirtumas (modulis, absoliutus dydis) yra didesnis nei | 30 | rūšiavimą kartokite. (Kad sumos nesiskirtų viena nuo kitos daugiau nei per 30)
-#
+print('-------------9---------------')
+
+Fibonacci = [random.randint(5, 25), random.randint(5, 25)]
+
+# Use a loop to generate the remaining numbers in the array
+for i in range(2, 10):
+    next = Fibonacci[i-1] + Fibonacci[i-2]
+    Fibonacci.append(next)
+print(Fibonacci)
+
+
+
