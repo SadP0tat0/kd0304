@@ -143,6 +143,18 @@ print(f"A: {A}, B: {B}, C: {C}, D: {D}")
 
 # Išrūšiuokite 3 uždavinio masyvą pagal abecėlę.
 print('-----------------4--------------------')
+abc = []
+for i in range(A):
+    abc.append('A')
+for i in range(B):
+    abc.append('B')
+for i in range(C):
+    abc.append('C')
+for i in range(D):
+    abc.append('D')
+
+print("Pagal abecele:", abc)
+
 
 raidynas.sort()
 print(raidynas)
@@ -225,5 +237,94 @@ for i in range(2, 10):
     Fibonacci.append(next)
 print(Fibonacci)
 
+# a) Sugeneruokite 101 elemento masyvą su atsitiktiniais skaičiais nuo 0 iki 300.
+# b) Reikšmes kurios tame masyve yra ne unikalios pergeneruokite iš naujo taip, kad visos reikšmės masyve būtų unikalios.
+# c) Išrūšiuokite masyvą taip, kad jo didžiausia reikšmė būtų masyvo viduryje, o einant nuo jos link masyvo pradžios ir pabaigos reikšmės mažėtų.
+# d) Paskaičiuokite pirmos ir antros masyvo dalies sumas (neskaičiuojant vidurinės).
+# e) Jeigu sumų skirtumas (modulis, absoliutus dydis) yra didesnis nei | 30 | rūšiavimą kartokite. (Kad sumos nesiskirtų viena nuo kitos daugiau nei per 30)
+print('--------10--------')
+# a)
+kosmosas = []
+for i in range(101):
+    rn = random.randint(0,300)
+    kosmosas.append(rn)
+print(kosmosas)
+# b)
+kosmosas1 = kosmosas[:]
+for i in range(len(kosmosas1)):
+    while kosmosas1.count(kosmosas1[i]) > 1:
+        kosmosas1[i] = random.randint(0, 300)
 
+print("Kosmosas (kosmosas):")
+print(kosmosas)
+print()
+print("Unikalus kosmosas (kosmosas1):")
+print(kosmosas1)
 
+# duplicates = []
+# for i in range(len(kosmosas)):
+#     if kosmosas.count(kosmosas[i]) > 1 and kosmosas[i] not in duplicates:
+#         duplicates.append(kosmosas[i])
+# print("Duplicate values in kosmosas:")
+# print(duplicates)
+#
+# duplicates1 = []
+# for i in range(len(kosmosas1)):
+#     if kosmosas1.count(kosmosas1[i]) > 1 and kosmosas1[i] not in duplicates1:
+#         duplicates1.append(kosmosas1[i])
+#
+# print("Duplicate values in kosmosas1:")
+# print(duplicates1)
+print('----c)-----')
+kosmosas2 = kosmosas1[:]
+# print(kosmosas2)
+# max_sk = kosmosas2[0]
+# max_i = 0
+#                                                 #didiausias skaicius
+# for i in range(1, len(kosmosas2)):
+#     if kosmosas2 [i] > max_sk:
+#         max_sk = kosmosas2[i]
+#         max_i = i
+#
+# likuciai = [value for value in kosmosas2 if value != max_sk]
+#
+# for i in range(len(likuciai)):
+#     for x in range(i + 1, len(likuciai)):
+#         if likuciai[i] < likuciai[x]:
+#             likuciai[i], likuciai[x] = likuciai[x], likuciai[i]
+#
+# vidurys = len(kosmosas2) // 2
+# kosmosas2 = likuciai[:vidurys] + [max_sk] + likuciai[vidurys:]
+# print('kosmosas2', kosmosas2)
+# Step 1: Find the largest value and its index
+max_sk = kosmosas2[0]
+max_i = 0
+for i in range(1, len(kosmosas2)):
+    if kosmosas2[i] > max_sk:
+        max_sk = kosmosas2[i]
+        max_i = i
+
+# Step 2: Create a list excluding the largest value
+likuciai = [value for value in kosmosas2 if value != max_sk]
+
+# Step 3: Sort the first part (up to the middle) in ascending order
+left_part = likuciai[:len(likuciai)//2]
+right_part = likuciai[len(likuciai)//2:]
+
+# Sort the left part in ascending order
+for i in range(len(left_part)):
+    for j in range(i + 1, len(left_part)):
+        if left_part[i] > left_part[j]:
+            left_part[i], left_part[j] = left_part[j], left_part[i]
+
+# Step 4: Sort the right part in descending order
+for i in range(len(right_part)):
+    for j in range(i + 1, len(right_part)):
+        if right_part[i] < right_part[j]:
+            right_part[i], right_part[j] = right_part[j], right_part[i]
+
+# Step 5: Place the largest value in the middle (index 51)
+kosmosas2 = left_part + [max_sk] + right_part
+
+# Step 6: Print the final result
+print('kosmosas2:', kosmosas2)
